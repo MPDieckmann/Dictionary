@@ -9305,12 +9305,17 @@ function getEntry(line) {
   var entry = [
     line[0],
     line[1],
-    line[2],
-    line[3]
+    line[2]
   ];
   var dl = document.createElement("dl");
   var dt;
   var dd;
+  if (line[3]) {
+    var div = document.createElement("div");
+    div.classList.add("column-variants-wrapper");
+    div.textContent = line[3];
+    entry.push(div);
+  }
   if (line[4]) {
     dt = document.createElement("dt");
     dl.appendChild(dt);
