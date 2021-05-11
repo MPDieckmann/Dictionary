@@ -98,12 +98,11 @@ td.column-lexeme {
 }
 
 td.column-variants {
-  width: 100px;
+  width: 30vw;
   font-size: 1.25em;
   line-height: 1.25em;
   font-family: "SBL Hebrew", "SBL BibLit";
   direction: rtl;
-  max-width: 30vw;
 }
 
 .column-variants-wrapper {
