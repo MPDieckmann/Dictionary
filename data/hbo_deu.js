@@ -9271,10 +9271,10 @@ var entry_head = [{
   label: "Varianten", class: "variants", type: "plain", lang: "hbo", input: {
     type: "text", placeholder: "Filter", oninput(value) {
       if (value == "") {
-        searchParams[2] = null;
+        searchParams[3] = null;
       } else {
         var regexp = new RegExp(value.replace(/([\:\-\/\\\,\.\(\)\[\]\{\}])/g, "\\$1").replace(/([\+\?\*])/g, ".$1").replace(/([\u05D0-\u05EA])/g, "$1[\\u0591-\\u05C7]*"), "i");
-        searchParams[2] = index => regexp.test(entries[index][2]);
+        searchParams[3] = index => regexp.test(entries[index][3]);
       }
     }
   }
@@ -9282,20 +9282,20 @@ var entry_head = [{
   label: "Übersetzung", class: "translation", type: "html", lang: "deu", input: {
     type: "text", placeholder: "Filter", oninput(value) {
       if (value == "") {
-        searchParams[3] = null;
+        searchParams[4] = null;
       } else {
         value = value.split(":");
         var trans = ["", "qal", "nifal", "piel", "pual", "hitpael", "hifil", "hofal", "hishtafal", "passive qal", "etpaal", "nitpael", "hotpaal", "tifal", "hitpoal", "poal", "poel"].indexOf(value[0].toLowerCase());
         var trans2 = ["", "q", "ni", "pi", "pu", "hit", "hi", "ho", "hish", "p.q", "et", "nit", "hot", "ti", "hitp", "poal", "poel"].indexOf(value[0].toLowerCase());
         if (trans >= 0) {
           var regexp = new RegExp((value[1] || "").replace(/([\:\-\/\\\,\.\(\)\[\]\{\}])/g, "\\$1").replace(/([\+\?\*])/g, ".$1"), "i");
-          searchParams[3] = index => regexp.test(dictionary[index][trans + 3]);
+          searchParams[4] = index => regexp.test(dictionary[index][trans + 4]);
         } else if (trans2 >= 0) {
           var regexp = new RegExp((value[1] || "").replace(/([\:\-\/\\\,\.\(\)\[\]\{\}])/g, "\\$1").replace(/([\+\?\*])/g, ".$1"), "i");
-          searchParams[3] = index => regexp.test(dictionary[index][trans2 + 3]);
+          searchParams[4] = index => regexp.test(dictionary[index][trans2 + 4]);
         } else {
           var regexp = new RegExp(value.join(":").replace(/([\:\-\/\\\,\.\(\)\[\]\{\}])/g, "\\$1").replace(/([\+\?\*])/g, ".$1"), "i");
-          searchParams[3] = index => regexp.test(entries[index][3].textContent);
+          searchParams[4] = index => regexp.test(entries[index][4].textContent);
         }
       }
     }
@@ -9305,19 +9305,20 @@ function getEntry(line) {
   var entry = [
     line[0],
     line[1],
-    line[2]
+    line[2],
+    line[3]
   ];
   var dl = document.createElement("dl");
   var dt;
   var dd;
-  if (line[3]) {
+  if (line[4]) {
     dt = document.createElement("dt");
     dl.appendChild(dt);
     dd = document.createElement("dd");
-    dd.textContent = line[3];
+    dd.textContent = line[4];
     dl.appendChild(dd);
   } else {
-    for (a = 3; a < 20; a++) {
+    for (a = 4; a < 21; a++) {
       if (line[a]) {
         dt = document.createElement("dt");
         dt.textContent = dictionary_head[a] + ":";
