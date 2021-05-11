@@ -9274,7 +9274,7 @@ var entry_head = [{
         searchParams[3] = null;
       } else {
         var regexp = new RegExp(value.replace(/([\:\-\/\\\,\.\(\)\[\]\{\}])/g, "\\$1").replace(/([\+\?\*])/g, ".$1").replace(/([\u05D0-\u05EA])/g, "$1[\\u0591-\\u05C7]*"), "i");
-        searchParams[3] = index => regexp.test(entries[index][3].textContent);
+        searchParams[3] = index => entries[index][3].mpc_data.filter(word => regexp.test(word)).length > 0;
       }
     }
   }
@@ -9314,6 +9314,7 @@ function getEntry(line) {
     var div = document.createElement("div");
     div.classList.add("column-variants-wrapper");
     div.textContent = line[3];
+    div.mpc_data = line[3].split(", ");
     entry.push(div);
   }
   if (line[4]) {
