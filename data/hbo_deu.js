@@ -9274,7 +9274,7 @@ var entry_head = [{
         searchParams[3] = null;
       } else {
         var regexp = new RegExp(value.replace(/([\:\-\/\\\,\.\(\)\[\]\{\}])/g, "\\$1").replace(/([\+\?\*])/g, ".$1").replace(/([\u05D0-\u05EA])/g, "$1[\\u0591-\\u05C7]*"), "i");
-        searchParams[3] = index => regexp.test(entries[index][3]);
+        searchParams[3] = index => regexp.test(entries[index][3].textContent);
       }
     }
   }
