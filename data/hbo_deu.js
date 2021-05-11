@@ -9268,7 +9268,7 @@ var entry_head = [{
     }
   }
 }, {
-  label: "Varianten", class: "variants", type: "plain", lang: "hbo", input: {
+  label: "Varianten", class: "variants", type: "html", lang: "hbo", input: {
     type: "text", placeholder: "Filter", oninput(value) {
       if (value == "") {
         searchParams[3] = null;
