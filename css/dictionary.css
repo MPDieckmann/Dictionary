@@ -106,6 +106,13 @@ td.column-variants {
   max-width: 30vw;
 }
 
+.column-variants-wrapper {
+  padding: 0.25em;
+  height: 100%;
+  overflow: auto;
+  max-height: 200px;
+}
+
 .column-translation {
   width: auto;
   text-align: start;
