@@ -1,4 +1,4 @@
-var dictionary = [["Occurrences","lex","Lexeme","None","Peal","Peil","Pael","Hafel","Afel","Shafel","Hofal","Hitpeel","Hitpaal","Hishtafal","Etpeel","Etpaal"],
+var dictionary = JSON.parse(`[["Occurrences","lex","Lexeme","None","Peal","Peil","Pael","Hafel","Afel","Shafel","Hofal","Hitpeel","Hitpaal","Hishtafal","Etpeel","Etpaal"],
 ["9",">B/","אַב I","Vater","","","","","","","","","","","",""],
 ["3",">B=/","אֵב II","Frucht","","","","","","","","","","","",""],
 ["7",">BD[","אבד","","zugrunde gehen","","","umbringen, vernichten","","","vernichtet werden","","","","",""],
@@ -706,11 +706,11 @@ var dictionary = [["Occurrences","lex","Lexeme","None","Peal","Peil","Pael","Haf
 ["4","TRJN/","תְּרֵין","zwei","","","","","","","","","","","",""],
 ["2","TR</","תְּרַע I","Tür; Hof","","","","","","","","","","","",""],
 ["1","TR<=/","תָּרָע II","Torhüter","","","","","","","","","","","",""],
-["4","TTNJ/","תַּתְּנַי","Tattenai","","","","","","","","","","","",""]]
+["4","TTNJ/","תַּתְּנַי","Tattenai","","","","","","","","","","","",""]]`);
 var dictionary_head = dictionary.shift();
 var searchParams = [null, null, null, null];
 var entry_head = [{
-  label: "Vorkommen", class: "occurences", type: "plain", lang: "deu", input: {
+  label: "Count", class: "occurences", type: "plain", lang: "deu", input: {
     type: "text", placeholder: "Filter", oninput(value) {
       if (value == "") {
         searchParams[0] = null;

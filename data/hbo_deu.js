@@ -9224,7 +9224,7 @@ var dictionary = JSON.parse(`[["Occurrences","lex","Lexeme","variants","None","Q
 var dictionary_head = dictionary.shift();
 var searchParams = [null, null, null, null];
 var entry_head = [{
-  label: "Vorkommen", class: "occurences", type: "plain", lang: "deu", input: {
+  label: "Count", class: "occurences", type: "plain", lang: "deu", input: {
     type: "text", placeholder: "Filter", oninput(value) {
       if (value == "") {
         searchParams[0] = null;

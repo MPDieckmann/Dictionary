@@ -58,32 +58,29 @@ th {
 
 .column-index {
   width: 47px;
-  max-width: 0;
 }
 
 .column-occurences {
-  width: 93px;
-  max-width: 0;
+  width: 47px;
 }
 
 .column-lex {
-  width: 93px;
-  max-width: 0;
+  width: 47px;
 }
 
-@media(max-width: 450px) {
+@media (max-width: 600px) {
   .column-index {
     display: none;
   }
 }
 
-@media(max-width: 400px) {
+@media (max-width: 500px) {
   .column-lex {
     display: none;
   }
 }
 
-@media(max-width: 350px) {
+@media (max-width: 400px) {
   .column-occurences {
     display: none;
   }

@@ -7,7 +7,16 @@ function startSearch() {
   ids.countdown.classList.add("counting");
   timeoutID = setTimeout(performSearch, timeout);
 }
-
+document.body.addEventListener("click", (event) => {
+  if (!MPCKeyboard.hideNativeIME) {
+    return;
+  }
+  if (event.target instanceof HTMLInputElement) {
+    MPCKeyboard.UX.show();
+  } else if (event.target instanceof HTMLElement) {
+    MPCKeyboard.UX.hide();
+  }
+})
 function createHeaderRow() {
   var tr = document.createElement("tr");
   tr.addEventListener("click", () => {
@@ -39,6 +48,7 @@ function createHeaderRow() {
     input.lang = a.lang;
     input.setAttribute("placeholder", a.input.placeholder);
     input.addEventListener("focus", () => {
+      console.log(MPCKeyboard.hideNativeIME);
       MPCKeyboard.UX.isVisible() && MPCKeyboard.setActiveKeyboard(input.lang.toUpperCase());
     });
     input.addEventListener("input", () => {
